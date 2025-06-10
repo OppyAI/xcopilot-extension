@@ -20,7 +20,7 @@
 
 1. 截断文件，当它超过上下文长度：在这种情况下，你总是每个文件有 1 个分块。
 2. 拆分文件到一个固定长度的分块：从文件的最上面开始，添加你当前分块的行，直到它到达限制，然后开始一个新的分块。
-3. 使用一个递归的，基于抽象语法树（AST）的策略：这是最准确的，但是最复杂的。在大多数情况下，通过使用 (1) 或 (2) ，你可以获得好的质量结果，但是如果你想要尝试这个，你可以查找一个参考示例，在 [我们的代码 chunker](https://github.com/continuedev/continue/blob/main/core/indexing/chunk/code.ts) 或在 [LlamaIndex](https://docs.llamaindex.ai/en/stable/api_reference/node_parsers/code/) 。
+3. 使用一个递归的，基于抽象语法树（AST）的策略：这是最准确的，但是最复杂的。在大多数情况下，通过使用 (1) 或 (2) ，你可以获得好的质量结果，但是如果你想要尝试这个，你可以查找一个参考示例，在 [我们的代码 chunker](https://github.com/noiragentdev/noiragent/blob/main/core/indexing/chunk/code.ts) 或在 [LlamaIndex](https://docs.llamaindex.ai/en/stable/api_reference/node_parsers/code/) 。
 
 像往常一样，在这个指南中，我们推荐开始的策略，使用 20% 的努力获得 80% 的收益。
 

@@ -4,8 +4,8 @@ import * as vscode from "vscode";
 
 import { Battery } from "../util/battery";
 import {
-  CONTINUE_WORKSPACE_KEY,
-  getContinueWorkspaceConfig,
+    NOIRAGENT_WORKSPACE_KEY,
+    getNoirAgentWorkspaceConfig,
 } from "../util/workspaceConfig";
 
 export enum StatusBarStatus {
@@ -47,20 +47,20 @@ const statusBarItemText = (
   error?: boolean,
 ) => {
   if (error) {
-    return "$(alert) Continue (config error)";
+    return "$(alert) NoirAgent (config error)";
   }
 
   switch (status) {
     case undefined:
       if (loading) {
-        return "$(loading~spin) Continue";
+        return "$(loading~spin) NoirAgent";
       }
     case StatusBarStatus.Disabled:
-      return "$(circle-slash) Continue";
+      return "$(circle-slash) NoirAgent";
     case StatusBarStatus.Enabled:
-      return "$(check) Continue";
+      return "$(check) NoirAgent";
     case StatusBarStatus.Paused:
-      return "$(debug-pause) Continue";
+      return "$(debug-pause) NoirAgent";
   }
 };
 
@@ -123,7 +123,7 @@ export function setupStatusBar(
 
   statusBarItem.text = statusBarItemText(status, loading, statusBarError);
   statusBarItem.tooltip = statusBarItemTooltip(status ?? statusBarStatus);
-  statusBarItem.command = "continue.openTabAutocompleteConfigMenu";
+  statusBarItem.command = "noiragent.openTabAutocompleteConfigMenu";
 
   statusBarItem.show();
   if (status !== undefined) {
@@ -131,8 +131,8 @@ export function setupStatusBar(
   }
 
   vscode.workspace.onDidChangeConfiguration((event) => {
-    if (event.affectsConfiguration(CONTINUE_WORKSPACE_KEY)) {
-      const enabled = getContinueWorkspaceConfig().get<boolean>(
+    if (event.affectsConfiguration(NOIRAGENT_WORKSPACE_KEY)) {
+      const enabled = getNoirAgentWorkspaceConfig().get<boolean>(
         "enableTabAutocomplete",
       );
       if (enabled && statusBarStatus === StatusBarStatus.Paused) {

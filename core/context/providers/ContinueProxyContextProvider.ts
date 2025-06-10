@@ -1,18 +1,18 @@
 import { getControlPlaneEnv } from "../../control-plane/env.js";
 import {
-  ContextItem,
-  ContextProviderDescription,
-  ContextProviderExtras,
-  ContextSubmenuItem,
-  LoadSubmenuItemsArgs,
+    ContextItem,
+    ContextProviderDescription,
+    ContextProviderExtras,
+    ContextSubmenuItem,
+    LoadSubmenuItemsArgs,
 } from "../../index.js";
 import { BaseContextProvider } from "../index.js";
 
-class ContinueProxyContextProvider extends BaseContextProvider {
+class NoirAgentProxyContextProvider extends BaseContextProvider {
   static description: ContextProviderDescription = {
-    title: "continue-proxy",
-    displayTitle: "Continue Proxy",
-    description: "Retrieve a context item from a Continue for Teams add-on",
+    title: "noiragent-proxy",
+    displayTitle: "NoirAgent Proxy",
+    description: "Retrieve a context item from a NoirAgent for Teams add-on",
     type: "submenu",
   };
 
@@ -21,15 +21,15 @@ class ContinueProxyContextProvider extends BaseContextProvider {
   override get description(): ContextProviderDescription {
     return {
       title:
-        this.options.title || ContinueProxyContextProvider.description.title,
+        this.options.title || NoirAgentProxyContextProvider.description.title,
       displayTitle:
         this.options.displayTitle ||
         this.options.name ||
-        ContinueProxyContextProvider.description.displayTitle,
+        NoirAgentProxyContextProvider.description.displayTitle,
       description:
         this.options.description ||
-        ContinueProxyContextProvider.description.description,
-      type: this.options.type || ContinueProxyContextProvider.description.type,
+        NoirAgentProxyContextProvider.description.description,
+      type: this.options.type || NoirAgentProxyContextProvider.description.type,
     };
   }
 
@@ -79,4 +79,4 @@ class ContinueProxyContextProvider extends BaseContextProvider {
   }
 }
 
-export default ContinueProxyContextProvider;
+export default NoirAgentProxyContextProvider;

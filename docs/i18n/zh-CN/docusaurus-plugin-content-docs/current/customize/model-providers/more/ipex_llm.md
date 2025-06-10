@@ -34,5 +34,5 @@ IPEX-LLM 支持加速托管在 Intel GPU 上的 Ollama 后端。从 IPEX-LLM 官
 ```
 
 :::tip
-如果你想要在 Continue 中第一次与模型交谈之前预加载模型，你需要查看 [这里](https://ipex-llm.readthedocs.io/en/latest/doc/LLM/Quickstart/continue_quickstart.html#pull-and-prepare-the-model) 获取更多信息。
+如果你想要在 Continue 中第一次与模型交谈之前预加载模型，你需要查看 [这里](https://ipex-llm.readthedocs.io/en/latest/doc/LLM/Quickstart/noiragent_quickstart.html#pull-and-prepare-the-model) 获取更多信息。
 :::

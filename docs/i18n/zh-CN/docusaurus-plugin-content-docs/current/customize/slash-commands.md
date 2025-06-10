@@ -52,7 +52,7 @@ Comment 工作就像 `/Edit` ，除了它将自动地给 LLM 注释代码的提�
     {
       "name": "share",
       "description": "Export the current chat session to markdown",
-      "params": { "outputDir": "~/.continue/session-transcripts" }
+      "params": { "outputDir": "~/.noiragent/session-transcripts" }
     }
   ]
 }
@@ -92,7 +92,7 @@ Comment 工作就像 `/Edit` ，除了它将自动地给 LLM 注释代码的提�
 
 ### `/Http`
 
-编写一个自定义的斜杠命令，在你自己的 HTTP 端点。在参数对象中对于你设置的端点设置 'url' 。端点应该返回一个字符串更新序列，将会流式地输出到 Continue 侧边栏。查看我们基本的 [FastAPI 示例](https://github.com/continuedev/continue/blob/74002369a5e435735b83278fb965e004ae38a97d/core/context/providers/context_provider_server.py#L34-L45) 作为参考。
+编写一个自定义的斜杠命令，在你自己的 HTTP 端点。在参数对象中对于你设置的端点设置 'url' 。端点应该返回一个字符串更新序列，将会流式地输出到 Continue 侧边栏。查看我们基本的 [FastAPI 示例](https://github.com/noiragentdev/noiragent/blob/74002369a5e435735b83278fb965e004ae38a97d/core/context/providers/context_provider_server.py#L34-L45) 作为参考。
 
 ```json title="config.json"
 {
@@ -116,7 +116,7 @@ Comment 工作就像 `/Edit` ，除了它将自动地给 LLM 注释代码的提�
     {
       "name": "issue",
       "description": "Generate a link to a drafted GitHub issue",
-      "params": { "repositoryUrl": "https://github.com/continuedev/continue" }
+      "params": { "repositoryUrl": "https://github.com/noiragentdev/noiragent" }
     }
   ]
 }

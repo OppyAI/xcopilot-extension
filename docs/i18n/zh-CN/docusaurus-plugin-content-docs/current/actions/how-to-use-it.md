@@ -27,7 +27,7 @@ Actions 是常见用例的快捷方式。例如，你可能想要审查代码，
 完整的 .prompt 文件可以参考 [这里](../customize/deep-dives/prompt.md) 。
 
 :::tip[Prompt 库]
-为了帮助你开始，[我们精心编写了一个小的 `.prompt` 文件库](https://github.com/continuedev/prompt-file-examples) 。我们鼓励社区贡献到这个仓库，所以请考虑为你的 prompt 创建一个拉取请求！
+为了帮助你开始，[我们精心编写了一个小的 `.prompt` 文件库](https://github.com/noiragentdev/prompt-file-examples) 。我们鼓励社区贡献到这个仓库，所以请考虑为你的 prompt 创建一个拉取请求！
 :::
 
 以下是一个快速示例，设置一个使用 Jest 编写单元测试的 prompt 文件。
@@ -82,4 +82,4 @@ Write unit tests for the above selected code, following each of these instructio
 
 无论何时在你的代码中看到红色/黄色下划线表示错误，你可以把光标放到附近， VS Code 会显示一个灯泡图标。无论点击灯泡，或使用 `cmd/ctrl+.` 快捷键，将会显示一个快速修复的下拉菜单。其中之一是 "Ask Continue" action 。无论单击或再次使用 `cmd/ctrl+.` ， Continue 将尝试帮助解决问题。
 
-![ask-continue](/img/ask-continue.png)
+![ask-noiragent](/img/ask-noiragent.png)

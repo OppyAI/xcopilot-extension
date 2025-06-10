@@ -139,7 +139,7 @@ export const getSnippets = (
   prioritizedSnippets = prioritizedSnippets.filter(
     (snippet) =>
       !(snippet as AutocompleteCodeSnippet).filepath?.startsWith(
-        "output:extension-output-Continue.continue",
+        "output:extension-output-NoirAgent.noiragent",
       ),
   );
 

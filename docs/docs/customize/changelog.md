@@ -6,8 +6,8 @@ hide_table_of_contents: true
 
 # Redirecting to Changelog
 
-If you are not redirected automatically, follow this [link to the changelog](https://changelog.continue.dev).
+If you are not redirected automatically, follow this [link to the changelog](https://changelog.noiragent.dev).
 
 <head>
-  <meta http-equiv="refresh" content="0;url=https://changelog.continue.dev" />
+  <meta http-equiv="refresh" content="0;url=https://changelog.noiragent.dev" />
 </head>

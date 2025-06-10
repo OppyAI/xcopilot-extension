@@ -46,7 +46,7 @@ let fullScreenPanel: vscode.WebviewPanel | undefined;
 function getFullScreenTab() {
   const tabs = vscode.window.tabGroups.all.flatMap((tabGroup) => tabGroup.tabs);
   return tabs.find((tab) =>
-    (tab.input as any)?.viewType?.endsWith("continue.continueGUIView"),
+    (tab.input as any)?.viewType?.endsWith("noiragent.continueGUIView"),
   );
 }
 
@@ -66,10 +66,9 @@ function focusGUI() {
   const fullScreenTab = getFullScreenTab();
   if (fullScreenTab) {
     // focus fullscreen
-    fullScreenPanel?.reveal();
-  } else {
+    fullScreenPanel?.reveal();  } else {
     // focus sidebar
-    vscode.commands.executeCommand("continue.continueGUIView.focus");
+    vscode.commands.executeCommand("noiragent.noirAgentGUIView.focus");
     // vscode.commands.executeCommand("workbench.action.focusAuxiliaryBar");
   }
 }
@@ -224,9 +223,8 @@ const getCommandsMap: (
       rulesToInclude: config.rules,
     });
   }
-
   return {
-    "continue.acceptDiff": async (newFileUri?: string, streamId?: string) =>
+    "noiragent.acceptDiff": async (newFileUri?: string, streamId?: string) =>
       processDiff(
         "accept",
         sidebar,
@@ -237,7 +235,7 @@ const getCommandsMap: (
         streamId,
       ),
 
-    "continue.rejectDiff": async (newFileUri?: string, streamId?: string) =>
+    "noiragent.rejectDiff": async (newFileUri?: string, streamId?: string) =>
       processDiff(
         "reject",
         sidebar,
@@ -247,15 +245,14 @@ const getCommandsMap: (
         newFileUri,
         streamId,
       ),
-    "continue.acceptVerticalDiffBlock": (fileUri?: string, index?: number) => {
+    "noiragent.acceptVerticalDiffBlock": (fileUri?: string, index?: number) => {
       captureCommandTelemetry("acceptVerticalDiffBlock");
       verticalDiffManager.acceptRejectVerticalDiffBlock(true, fileUri, index);
-    },
-    "continue.rejectVerticalDiffBlock": (fileUri?: string, index?: number) => {
+    },    "noiragent.rejectVerticalDiffBlock": (fileUri?: string, index?: number) => {
       captureCommandTelemetry("rejectVerticalDiffBlock");
       verticalDiffManager.acceptRejectVerticalDiffBlock(false, fileUri, index);
     },
-    "continue.quickFix": async (
+    "noiragent.quickFix": async (
       range: vscode.Range,
       diagnosticMessage: string,
     ) => {
@@ -265,24 +262,22 @@ const getCommandsMap: (
 
       addCodeToContextFromRange(range, sidebar.webviewProtocol, prompt);
 
-      vscode.commands.executeCommand("continue.continueGUIView.focus");
+      vscode.commands.executeCommand("noiragent.noirAgentGUIView.focus");
     },
     // Passthrough for telemetry purposes
-    "continue.defaultQuickAction": async (args: QuickEditShowParams) => {
+    "noiragent.defaultQuickAction": async (args: QuickEditShowParams) => {
       captureCommandTelemetry("defaultQuickAction");
-      vscode.commands.executeCommand("continue.focusEdit", args);
+      vscode.commands.executeCommand("noiragent.focusEdit", args);
     },
-    "continue.customQuickActionSendToChat": async (
+    "noiragent.customQuickActionSendToChat": async (
       prompt: string,
       range: vscode.Range,
     ) => {
-      captureCommandTelemetry("customQuickActionSendToChat");
+      captureCommandTelemetry("customQuickActionSendToChat");      addCodeToContextFromRange(range, sidebar.webviewProtocol, prompt);
 
-      addCodeToContextFromRange(range, sidebar.webviewProtocol, prompt);
-
-      vscode.commands.executeCommand("continue.continueGUIView.focus");
+      vscode.commands.executeCommand("noiragent.noirAgentGUIView.focus");
     },
-    "continue.customQuickActionStreamInlineEdit": async (
+    "noiragent.customQuickActionStreamInlineEdit": async (
       prompt: string,
       range: vscode.Range,
     ) => {
@@ -290,19 +285,19 @@ const getCommandsMap: (
 
       streamInlineEdit("docstring", prompt, false, range);
     },
-    "continue.codebaseForceReIndex": async () => {
+    "noiragent.codebaseForceReIndex": async () => {
       core.invoke("index/forceReIndex", undefined);
     },
-    "continue.rebuildCodebaseIndex": async () => {
+    "noiragent.rebuildCodebaseIndex": async () => {
       core.invoke("index/forceReIndex", { shouldClearIndexes: true });
     },
-    "continue.docsIndex": async () => {
+    "noiragent.docsIndex": async () => {
       core.invoke("context/indexDocs", { reIndex: false });
     },
-    "continue.docsReIndex": async () => {
+    "noiragent.docsReIndex": async () => {
       core.invoke("context/indexDocs", { reIndex: true });
     },
-    "continue.focusContinueInput": async () => {
+    "noiragent.focusContinueInput": async () => {
       const isContinueInputFocused = await sidebar.webviewProtocol.request(
         "isContinueInputFocused",
         undefined,
@@ -346,7 +341,7 @@ const getCommandsMap: (
         void addHighlightedCodeToContext(sidebar.webviewProtocol);
       }
     },
-    "continue.focusContinueInputWithoutClear": async () => {
+    "noiragent.focusContinueInputWithoutClear": async () => {
       const isContinueInputFocused = await sidebar.webviewProtocol.request(
         "isContinueInputFocused",
         undefined,
@@ -379,17 +374,17 @@ const getCommandsMap: (
     },
     // QuickEditShowParams are passed from CodeLens, temp fix
     // until we update to new params specific to Edit
-    "continue.focusEdit": async (args?: QuickEditShowParams) => {
+    "noiragent.focusEdit": async (args?: QuickEditShowParams) => {
       captureCommandTelemetry("focusEdit");
       focusGUI();
       sidebar.webviewProtocol?.request("focusEdit", undefined);
     },
-    "continue.exitEditMode": async () => {
+    "noiragent.exitEditMode": async () => {
       captureCommandTelemetry("exitEditMode");
       editDecorationManager.clear();
       void sidebar.webviewProtocol?.request("exitEditMode", undefined);
     },
-    "continue.writeCommentsForCode": async () => {
+    "noiragent.writeCommentsForCode": async () => {
       captureCommandTelemetry("writeCommentsForCode");
 
       streamInlineEdit(
@@ -397,7 +392,7 @@ const getCommandsMap: (
         "Write comments for this code. Do not change anything about the code itself.",
       );
     },
-    "continue.writeDocstringForCode": async () => {
+    "noiragent.writeDocstringForCode": async () => {
       captureCommandTelemetry("writeDocstringForCode");
 
       streamInlineEdit(
@@ -406,7 +401,7 @@ const getCommandsMap: (
         true,
       );
     },
-    "continue.fixCode": async () => {
+    "noiragent.fixCode": async () => {
       captureCommandTelemetry("fixCode");
 
       streamInlineEdit(
@@ -414,55 +409,53 @@ const getCommandsMap: (
         "Fix this code. If it is already 100% correct, simply rewrite the code.",
       );
     },
-    "continue.optimizeCode": async () => {
+    "noiragent.optimizeCode": async () => {
       captureCommandTelemetry("optimizeCode");
       streamInlineEdit("optimize", "Optimize this code");
     },
-    "continue.fixGrammar": async () => {
+    "noiragent.fixGrammar": async () => {
       captureCommandTelemetry("fixGrammar");
       streamInlineEdit(
         "fixGrammar",
         "If there are any grammar or spelling mistakes in this writing, fix them. Do not make other large changes to the writing.",
       );
     },
-    "continue.clearConsole": async () => {
+    "noiragent.clearConsole": async () => {
       consoleView.clearLog();
     },
-    "continue.viewLogs": async () => {
+    "noiragent.viewLogs": async () => {
       captureCommandTelemetry("viewLogs");
       vscode.commands.executeCommand("workbench.action.toggleDevTools");
     },
-    "continue.debugTerminal": async () => {
-      captureCommandTelemetry("debugTerminal");
+    "noiragent.debugTerminal": async () => {      captureCommandTelemetry("debugTerminal");
 
       const terminalContents = await ide.getTerminalContents();
 
-      vscode.commands.executeCommand("continue.continueGUIView.focus");
+      vscode.commands.executeCommand("noiragent.noirAgentGUIView.focus");
 
       sidebar.webviewProtocol?.request("userInput", {
         input: `I got the following error, can you please help explain how to fix it?\n\n${terminalContents.trim()}`,
       });
-    },
-    "continue.hideInlineTip": () => {
+    },    "noiragent.hideInlineTip": () => {
       vscode.workspace
         .getConfiguration(EXTENSION_NAME)
         .update("showInlineTip", false, vscode.ConfigurationTarget.Global);
     },
 
     // Commands without keyboard shortcuts
-    "continue.addModel": () => {
+    "noiragent.addModel": () => {
       captureCommandTelemetry("addModel");
 
-      vscode.commands.executeCommand("continue.continueGUIView.focus");
+      vscode.commands.executeCommand("noiragent.noirAgentGUIView.focus");
       sidebar.webviewProtocol?.request("addModel", undefined);
     },
-    "continue.newSession": () => {
+    "noiragent.newSession": () => {
       sidebar.webviewProtocol?.request("newSession", undefined);
     },
-    "continue.viewHistory": () => {
-      vscode.commands.executeCommand("continue.navigateTo", "/history", true);
+    "noiragent.viewHistory": () => {
+      vscode.commands.executeCommand("noiragent.navigateTo", "/history", true);
     },
-    "continue.focusContinueSessionId": async (
+    "noiragent.focusContinueSessionId": async (
       sessionId: string | undefined,
     ) => {
       if (!sessionId) {
@@ -474,10 +467,10 @@ const getCommandsMap: (
         sessionId,
       });
     },
-    "continue.applyCodeFromChat": () => {
+    "noiragent.applyCodeFromChat": () => {
       void sidebar.webviewProtocol.request("applyCodeFromChat", undefined);
     },
-    "continue.toggleFullScreen": async () => {
+    "noiragent.toggleFullScreen": async () => {
       focusGUI();
 
       const sessionId = await sidebar.webviewProtocol.request(
@@ -494,14 +487,14 @@ const getCommandsMap: (
       }
 
       // Clear the sidebar to prevent overwriting changes made in fullscreen
-      vscode.commands.executeCommand("continue.newSession");
+      vscode.commands.executeCommand("noiragent.newSession");
 
       // Full screen not open - open it
       captureCommandTelemetry("openFullScreen");
 
       // Create the full screen panel
       let panel = vscode.window.createWebviewPanel(
-        "continue.continueGUIView",
+        "noiragent.continueGUIView",
         "Continue",
         vscode.ViewColumn.One,
         {
@@ -521,10 +514,10 @@ const getCommandsMap: (
       );
 
       const sessionLoader = panel.onDidChangeViewState(() => {
-        vscode.commands.executeCommand("continue.newSession");
+        vscode.commands.executeCommand("noiragent.newSession");
         if (sessionId) {
           vscode.commands.executeCommand(
-            "continue.focusContinueSessionId",
+            "noiragent.focusContinueSessionId",
             sessionId,
           );
         }
@@ -536,7 +529,7 @@ const getCommandsMap: (
       panel.onDidDispose(
         () => {
           sidebar.resetWebviewProtocolWebview();
-          vscode.commands.executeCommand("continue.focusContinueInput");
+          vscode.commands.executeCommand("noiragent.focusContinueInput");
         },
         null,
         extensionContext.subscriptions,
@@ -545,10 +538,10 @@ const getCommandsMap: (
       vscode.commands.executeCommand("workbench.action.copyEditorToNewWindow");
       vscode.commands.executeCommand("workbench.action.closeAuxiliaryBar");
     },
-    "continue.openConfigPage": () => {
-      vscode.commands.executeCommand("continue.navigateTo", "/config", false);
+    "noiragent.openConfigPage": () => {
+      vscode.commands.executeCommand("noiragent.navigateTo", "/config", false);
     },
-    "continue.selectFilesAsContext": async (
+    "noiragent.selectFilesAsContext": async (
       firstUri: vscode.Uri,
       uris: vscode.Uri[],
     ) => {
@@ -556,7 +549,7 @@ const getCommandsMap: (
         throw new Error("No files were selected");
       }
 
-      vscode.commands.executeCommand("continue.continueGUIView.focus");
+      vscode.commands.executeCommand("noiragent.noirAgentGUIView.focus");
 
       for (const uri of uris) {
         // If it's a folder, add the entire folder contents recursively by using walkDir (to ignore ignored files)
@@ -565,7 +558,7 @@ const getCommandsMap: (
           ?.then((stat) => stat.type === vscode.FileType.Directory);
         if (isDirectory) {
           for await (const fileUri of walkDirAsync(uri.toString(), ide, {
-            source: "vscode continue.selectFilesAsContext command",
+            source: "vscode noiragent.selectFilesAsContext command",
           })) {
             await addEntireFileToContext(
               vscode.Uri.parse(fileUri),
@@ -582,13 +575,13 @@ const getCommandsMap: (
         }
       }
     },
-    "continue.logAutocompleteOutcome": (
+    "noiragent.logAutocompleteOutcome": (
       completionId: string,
       completionProvider: CompletionProvider,
     ) => {
       completionProvider.accept(completionId);
     },
-    "continue.toggleTabAutocompleteEnabled": () => {
+    "noiragent.toggleTabAutocompleteEnabled": () => {
       captureCommandTelemetry("toggleTabAutocompleteEnabled");
 
       const config = vscode.workspace.getConfiguration(EXTENSION_NAME);
@@ -623,8 +616,7 @@ const getCommandsMap: (
           );
         }
       }
-    },
-    "continue.openTabAutocompleteConfigMenu": async () => {
+    },    "noiragent.openTabAutocompleteConfigMenu": async () => {
       captureCommandTelemetry("openTabAutocompleteConfigMenu");
 
       const config = vscode.workspace.getConfiguration(EXTENSION_NAME);
@@ -710,25 +702,25 @@ const getCommandsMap: (
             });
           }
         } else if (selectedOption === "$(comment) Open chat") {
-          vscode.commands.executeCommand("continue.focusContinueInput");
+          vscode.commands.executeCommand("noiragent.focusContinueInput");
         } else if (selectedOption === "$(screen-full) Open full screen chat") {
-          vscode.commands.executeCommand("continue.toggleFullScreen");
+          vscode.commands.executeCommand("noiragent.toggleFullScreen");
         } else if (selectedOption === "$(gear) Open settings") {
-          vscode.commands.executeCommand("continue.navigateTo", "/config");
+          vscode.commands.executeCommand("noiragent.navigateTo", "/config");
         }
 
         quickPick.dispose();
       });
       quickPick.show();
     },
-    "continue.navigateTo": (path: string, toggle: boolean) => {
+    "noiragent.navigateTo": (path: string, toggle: boolean) => {
       sidebar.webviewProtocol?.request("navigateTo", { path, toggle });
       focusGUI();
     },
-    "continue.startLocalOllama": () => {
+    "noiragent.startLocalOllama": () => {
       startLocalOllama(ide);
     },
-    "continue.installModel": async (
+    "noiragent.installModel": async (
       modelName: string,
       llmProvider: ILLM | undefined,
     ) => {
@@ -747,7 +739,7 @@ const getCommandsMap: (
         );
       }
     },
-    "continue.convertConfigJsonToConfigYaml": async () => {
+    "noiragent.convertConfigJsonToConfigYaml": async () => {
       const configJson = fs.readFileSync(getConfigJsonPath(), "utf-8");
       const parsed = JSON.parse(configJson);
       const configYaml = convertJsonToYamlConfig(parsed);
@@ -771,12 +763,12 @@ const getCommandsMap: (
         .then(async (selection) => {
           if (selection === "Read the docs") {
             await vscode.env.openExternal(
-              vscode.Uri.parse("https://docs.continue.dev/yaml-migration"),
+              vscode.Uri.parse("https://docs.noiragent.dev/yaml-migration"),
             );
           }
         });
     },
-    "continue.enterEnterpriseLicenseKey": async () => {
+    "noiragent.enterEnterpriseLicenseKey": async () => {
       captureCommandTelemetry("enterEnterpriseLicenseKey");
 
       const licenseKey = await vscode.window.showInputBox({
@@ -837,7 +829,7 @@ const registerCopyBufferService = (
       });
     }
 
-    await context.workspaceState.update("continue.copyBuffer", {
+    await context.workspaceState.update("noiragent.copyBuffer", {
       text: clipboardText,
       copiedAt: new Date().toISOString(),
     });

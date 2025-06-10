@@ -7,18 +7,18 @@ keywords: [config, settings, customize]
 
 You can easily access your assistant configuration from the Continue Chat sidebar. Open the sidebar by pressing <kbd>cmd/ctrl</kbd> + <kbd>L</kbd> (VS Code) or <kbd>cmd/ctrl</kbd> + <kbd>J</kbd> (JetBrains) and click the Assistant selector above the main chat input. Then, you can hover over an assistant and click the `new window` (hub assistants) or `gear` (local assistants) icon.
 
-![configure an assistant](/img/configure-continue.png)
+![configure an assistant](/img/configure-noiragent.png)
 
 ## Hub Assistants
 
-Hub Assistants can be managed in [the Hub](https://hub.continue.dev). See [Editing an Assistant](../../hub/assistants/edit-an-assistant.md)
+Hub Assistants can be managed in [the Hub](https://hub.noiragent.dev). See [Editing an Assistant](../../hub/assistants/edit-an-assistant.md)
 
 ## YAML Config
 
 Local user-level configuration is stored and can be edited in your home directory in `config.yaml`:
 
-- `~/.continue/config.yaml` (MacOS / Linux)
-- `%USERPROFILE%\.continue\config.yaml` (Windows)
+- `~/.noiragent/config.yaml` (MacOS / Linux)
+- `%USERPROFILE%\.noiragent\config.yaml` (Windows)
 
 To open this `config.yaml`, you need to open the assistants dropdown in the top-right portion of the chat input. On that dropdown beside the "Local Assistant" option, select the cog icon. It will open the local `config.yaml`.
 
@@ -35,18 +35,18 @@ View the `config.json` migration guide [here](../../yaml-migration.md)
 :::
 
 - [`config.json`](../../json-reference.md) - The original configuration format which is stored in a file at the same location as `config.yaml`
-- [`.continuerc.json`](#continuercjson) - Workspace-level configuration
+- [`.noiragentrc.json`](#noiragentrcjson) - Workspace-level configuration
 - [`config.ts`](#configts) - Advanced configuration (probably unnecessary) - a TypeScript file in your home directory that can be used to programmatically modify (_merged_) the `config.json` schema:
-  - `~/.continue/config.ts` (MacOS / Linux)
-  - `%USERPROFILE%\.continue\config.ts` (Windows)
+  - `~/.noiragent/config.ts` (MacOS / Linux)
+  - `%USERPROFILE%\.noiragent\config.ts` (Windows)
 
-### `.continuerc.json`
+### `.noiragentrc.json`
 
-The format of `.continuerc.json` is the same as `config.json`, plus one _additional_ property `mergeBehavior`, which can be set to either "merge" or "overwrite". If set to "merge" (the default), `.continuerc.json` will be applied on top of `config.json` (arrays and objects are merged). If set to "overwrite", then every top-level property of `.continuerc.json` will overwrite that property from `config.json`.
+The format of `.noiragentrc.json` is the same as `config.json`, plus one _additional_ property `mergeBehavior`, which can be set to either "merge" or "overwrite". If set to "merge" (the default), `.noiragentrc.json` will be applied on top of `config.json` (arrays and objects are merged). If set to "overwrite", then every top-level property of `.noiragentrc.json` will overwrite that property from `config.json`.
 
 Example
 
-```json title=".continuerc.json"
+```json title=".noiragentrc.json"
 {
   "tabAutocompleteOptions": {
     "disable": true
@@ -57,7 +57,7 @@ Example
 
 ### `config.ts`
 
-`config.yaml` or `config.json` can handle the vast majority of necessary configuration, so we recommend using it whenever possible. However, if you need to programmatically extend Continue configuration, you can use a `config.ts` file, placed at `~/.continue/config.ts` (MacOS / Linux) or `%USERPROFILE%\.continue\config.ts` (Windows).
+`config.yaml` or `config.json` can handle the vast majority of necessary configuration, so we recommend using it whenever possible. However, if you need to programmatically extend Continue configuration, you can use a `config.ts` file, placed at `~/.noiragent/config.ts` (MacOS / Linux) or `%USERPROFILE%\.noiragent\config.ts` (Windows).
 
 `config.ts` must export a `modifyConfig` function, like:
 

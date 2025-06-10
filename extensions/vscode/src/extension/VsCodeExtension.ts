@@ -7,18 +7,18 @@ import { Core } from "core/core";
 import { FromCoreProtocol, ToCoreProtocol } from "core/protocol";
 import { InProcessMessenger } from "core/protocol/messenger";
 import {
-  getConfigJsonPath,
-  getConfigTsPath,
-  getConfigYamlPath,
+    getConfigJsonPath,
+    getConfigTsPath,
+    getConfigYamlPath,
 } from "core/util/paths";
 import { v4 as uuidv4 } from "uuid";
 import * as vscode from "vscode";
 
 import { ContinueCompletionProvider } from "../autocomplete/completionProvider";
 import {
-  monitorBatteryChanges,
-  setupStatusBar,
-  StatusBarStatus,
+    monitorBatteryChanges,
+    setupStatusBar,
+    StatusBarStatus,
 } from "../autocomplete/statusBar";
 import { registerAllCommands } from "../commands";
 import { ContinueConsoleWebviewViewProvider } from "../ContinueConsoleWebviewViewProvider";
@@ -31,8 +31,8 @@ import { QuickEdit } from "../quickEdit/QuickEditQuickPick";
 import { setupRemoteConfigSync } from "../stubs/activation";
 import { UriEventHandler } from "../stubs/uriHandler";
 import {
-  getControlPlaneSessionInfo,
-  WorkOsAuthProvider,
+    getControlPlaneSessionInfo,
+    WorkOsAuthProvider,
 } from "../stubs/WorkOsAuthProvider";
 import { Battery } from "../util/battery";
 import { FileSearch } from "../util/FileSearch";
@@ -89,23 +89,26 @@ export class VsCodeExtension {
     let resolveConfigHandler: any = undefined;
     const configHandlerPromise = new Promise<ConfigHandler>((resolve) => {
       resolveConfigHandler = resolve;
-    });
-    this.sidebar = new ContinueGUIWebviewViewProvider(
+    });    this.sidebar = new ContinueGUIWebviewViewProvider(
       configHandlerPromise,
       this.windowId,
       this.extensionContext,
     );
-
+    
+    console.log("NoirAgent: Created webview provider");
+    
     // Sidebar
     context.subscriptions.push(
       vscode.window.registerWebviewViewProvider(
-        "continue.continueGUIView",
+        "noiragent.noirAgentGUIView",
         this.sidebar,
         {
           webviewOptions: { retainContextWhenHidden: true },
         },
       ),
     );
+    
+    console.log("NoirAgent: Registered webview provider with ID: noiragent.noirAgentGUIView");
     resolveWebviewProtocol(this.sidebar.webviewProtocol);
 
     const inProcessMessenger = new InProcessMessenger<
@@ -226,11 +229,9 @@ export class VsCodeExtension {
       this.windowId,
       this.extensionContext,
       this.core.llmLogger,
-    );
-
-    context.subscriptions.push(
+    );    context.subscriptions.push(
       vscode.window.registerWebviewViewProvider(
-        "continue.continueConsoleView",
+        "noiragent.noirAgentConsoleView",
         this.consoleView,
       ),
     );
@@ -310,7 +311,7 @@ export class VsCodeExtension {
       if (e.provider.id === env.AUTH_TYPE) {
         vscode.commands.executeCommand(
           "setContext",
-          "continue.isSignedInToControlPlane",
+          "noiragent.isSignedInToControlPlane",
           true,
         );
 
@@ -321,7 +322,7 @@ export class VsCodeExtension {
       } else {
         vscode.commands.executeCommand(
           "setContext",
-          "continue.isSignedInToControlPlane",
+          "noiragent.isSignedInToControlPlane",
           false,
         );
 

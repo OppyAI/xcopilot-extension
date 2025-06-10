@@ -1,7 +1,10 @@
 import { workspace } from "vscode";
 
-export const CONTINUE_WORKSPACE_KEY = "continue";
+export const NOIRAGENT_WORKSPACE_KEY = "noiragent";
+export const CONTINUE_WORKSPACE_KEY = NOIRAGENT_WORKSPACE_KEY;
 
-export function getContinueWorkspaceConfig() {
-  return workspace.getConfiguration(CONTINUE_WORKSPACE_KEY);
+export function getNoirAgentWorkspaceConfig() {
+  return workspace.getConfiguration(NOIRAGENT_WORKSPACE_KEY);
 }
+
+export const getContinueWorkspaceConfig = getNoirAgentWorkspaceConfig;

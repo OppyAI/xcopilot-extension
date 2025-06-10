@@ -45,14 +45,14 @@ toc_max_heading_level: 5
 
 为了添加多个文档网站，我们推荐批量添加它们到你的 `config.json` 文件中。索引将在文件保存后开始。
 
-[docs 的配置 schema](https://github.com/continuedev/continue/blob/v0.9.212-vscode/extensions/vscode/config_schema.json#L1943-L1973) 如下：
+[docs 的配置 schema](https://github.com/noiragentdev/noiragent/blob/v0.9.212-vscode/extensions/vscode/config_schema.json#L1943-L1973) 如下：
 
 ```json
 "docs": [
     {
     "title": "Continue",
-    "startUrl": "https://docs.continue.dev/intro",
-    "faviconUrl": "https://docs.continue.dev/favicon.ico",
+    "startUrl": "https://docs.noiragent.dev/intro",
+    "faviconUrl": "https://docs.noiragent.dev/favicon.ico",
   }
 ]
 ```
@@ -66,9 +66,9 @@ toc_max_heading_level: 5
 
 默认情况下，我们使用一个轻量的工具爬取文档网站，它不能渲染使用 JavaScript 动态生成的网站。
 
-If you want to crawl a site that is dynamically generated, or you get an error while attempting to crawl a site, you can enable the experimental `useChromiumForDocsCrawling` feature in your `config.json`. This will download and install Chromium to `~/.continue/.utils`.
+If you want to crawl a site that is dynamically generated, or you get an error while attempting to crawl a site, you can enable the experimental `useChromiumForDocsCrawling` feature in your `config.json`. This will download and install Chromium to `~/.noiragent/.utils`.
 
-如果你想要爬取一个动态生成的网站，或者当你爬取网站时得到一个错误，你可以在你的 `config.json` 启用试验性的 `useChromiumForDocsCrawling` 特性。这将下载并安装 Chromium 到 `~/.continue/.utils` 。
+如果你想要爬取一个动态生成的网站，或者当你爬取网站时得到一个错误，你可以在你的 `config.json` 启用试验性的 `useChromiumForDocsCrawling` 特性。这将下载并安装 Chromium 到 `~/.noiragent/.utils` 。
 
 ```json title="config.json"
 "experimental": {

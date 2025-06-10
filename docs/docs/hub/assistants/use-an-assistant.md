@@ -7,7 +7,7 @@ keywords: [assistants, usage, use, guide]
 
 # Use an assistant
 
-To use an existing assistant, you can explore other assistants [here](https://hub.continue.dev/explore/assistants).
+To use an existing assistant, you can explore other assistants [here](https://hub.noiragent.dev/explore/assistants).
 
 Once you've found the assistant you want to use
 

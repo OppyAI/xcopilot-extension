@@ -64,8 +64,8 @@ OpenAI 兼容服务器
 
 OpenAI 兼容 API
 
-- [Anyscale Endpoints](https://github.com/continuedev/deploy-os-code-llm#others)
-- [Anyscale Private Endpoints](https://github.com/continuedev/deploy-os-code-llm#anyscale-private-endpoints)
+- [Anyscale Endpoints](https://github.com/noiragentdev/deploy-os-code-llm#others)
+- [Anyscale Private Endpoints](https://github.com/noiragentdev/deploy-os-code-llm#anyscale-private-endpoints)
 
 如果你使用 OpenAI 兼容服务器 / API ，你可以像这样修改 `apiBase` ：
 

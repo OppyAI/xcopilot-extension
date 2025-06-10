@@ -19,4 +19,4 @@ Continue 底层实现使用 [OpenAI](../top-level/openai.md) 并自动选择可�
 }
 ```
 
-[查看代码](https://github.com/continuedev/continue/blob/main/core/llm/llms/Vllm.ts)
+[查看代码](https://github.com/noiragentdev/noiragent/blob/main/core/llm/llms/Vllm.ts)

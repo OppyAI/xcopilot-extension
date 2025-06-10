@@ -6,7 +6,7 @@ keywords: [llama, meta, togetherai, novita, ollama, replicate]
 
 Continue 让使用最新的开元模型编码变得简单，包括整个 Llama 3.1 家族模型。
 
-如果你还没有安装 Continue ，你可以安装 [VS Code 在这里](https://marketplace.visualstudio.com/items?itemName=Continue.continue) 或者 [JetBrains 在这里](https://plugins.jetbrains.com/plugin/22707-continue) 。对于更通用的定制 Continue 的信息，查看 [我们的定制文档](../overview.md) 。
+如果你还没有安装 Continue ，你可以安装 [VS Code 在这里](https://marketplace.visualstudio.com/items?itemName=Continue.noiragent) 或者 [JetBrains 在这里](https://plugins.jetbrains.com/plugin/22707-noiragent) 。对于更通用的定制 Continue 的信息，查看 [我们的定制文档](../overview.md) 。
 
 下面，我们分享一些最简单的配置和运行，基于你的使用情况。
 
@@ -95,7 +95,7 @@ Replicate 让使用 API 托管和运行开源 AI 变得简单。
 
 SambaNova Cloud 提供 Llama3.1 70B/405B 服务的世界记录。
 
-1. 创建账号 [在这里](http://cloud.sambanova.ai?utm_source=continue&utm_medium=external&utm_campaign=cloud_signup)
+1. 创建账号 [在这里](http://cloud.sambanova.ai?utm_source=noiragent&utm_medium=external&utm_campaign=cloud_signup)
 2. 复制你的 API key
 3. 更新你的 Continue 配置文件像这样：
 

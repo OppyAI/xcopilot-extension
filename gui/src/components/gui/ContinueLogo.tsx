@@ -1,16 +1,16 @@
-interface ContinueLogoProps {
+interface NoirAgentLogoProps {
   height?: number;
   width?: number;
 }
 
-export default function ContinueLogo({
+export default function NoirAgentLogo({
   height = 299,
   width = 987,
-}: ContinueLogoProps) {
+}: NoirAgentLogoProps) {
   return (
     <img
       src="/assets/logo.png"
-      alt="Continue Logo"
+      alt="NoirAgent Logo"
       width={width}
       height={height}
       style={{

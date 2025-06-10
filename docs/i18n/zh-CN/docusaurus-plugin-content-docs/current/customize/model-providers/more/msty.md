@@ -46,4 +46,4 @@
 }
 ```
 
-[查看代码](https://github.com/continuedev/continue/blob/main/core/llm/llms/Msty.ts)
+[查看代码](https://github.com/noiragentdev/noiragent/blob/main/core/llm/llms/Msty.ts)

@@ -5,7 +5,7 @@ title: Prompts
 Prompts are reusable instructions that can be referenced at any time during chat. They are especially useful as context for repetitive and/or complex tasks.
 
 :::info
-Visit the Hub to [explore prompts](https://hub.continue.dev/explore/prompts) or [create your own](https://hub.continue.dev/new?type=block&blockType=prompts)
+Visit the Hub to [explore prompts](https://hub.noiragent.dev/explore/prompts) or [create your own](https://hub.noiragent.dev/new?type=block&blockType=prompts)
 :::
 
 ## Examples
@@ -52,20 +52,20 @@ Many [context providers](../context-providers.mdx) can be referenced by typing "
 
 Or you can directly type URLs and file paths:
 
-- `@https://github.com/continuedev/continue` - The contents of a URL
+- `@https://github.com/noiragentdev/noiragent` - The contents of a URL
 - `@src/index.ts` - The contents of a file (VS Code only)
 
 All references will be attached as context items, rather than injected directly inline.
 
 ## Local `.prompt` files
 
-In addition to Prompt blocks on the Hub, you can also define prompts in local `.prompt` files, located in the `.continue/prompts` folder at the top level of your workspace. This is useful for quick iteration on prompts to test them out before pushing up to the Hub.
+In addition to Prompt blocks on the Hub, you can also define prompts in local `.prompt` files, located in the `.noiragent/prompts` folder at the top level of your workspace. This is useful for quick iteration on prompts to test them out before pushing up to the Hub.
 
 ### Quick Start
 
 Below is a quick example of setting up a prompt file:
 
-1. Create a folder called `.continue/prompts` at the top level of your workspace
+1. Create a folder called `.noiragent/prompts` at the top level of your workspace
 2. Add a file called `test.prompt` to this folder.
 3. Write the following contents to `test.prompt` and save.
 

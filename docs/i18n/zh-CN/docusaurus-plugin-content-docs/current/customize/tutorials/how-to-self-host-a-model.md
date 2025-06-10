@@ -2,13 +2,13 @@
 title: 如何自托管模型
 ---
 
-你可以在你的 [AWS](https://github.com/continuedev/deploy-os-code-llm#aws), [GCP](https://github.com/continuedev/deploy-os-code-llm#gcp), [Azure](https://github.com/continuedev/deploy-os-code-llm#azure), [Lambda](https://lambdalabs.com/) 或 [其他云](https://github.com/continuedev/deploy-os-code-llm#others-2) 上部署模型，使用：
+你可以在你的 [AWS](https://github.com/noiragentdev/deploy-os-code-llm#aws), [GCP](https://github.com/noiragentdev/deploy-os-code-llm#gcp), [Azure](https://github.com/noiragentdev/deploy-os-code-llm#azure), [Lambda](https://lambdalabs.com/) 或 [其他云](https://github.com/noiragentdev/deploy-os-code-llm#others-2) 上部署模型，使用：
 
-- [HuggingFace TGI](https://github.com/continuedev/deploy-os-code-llm#tgi)
-- [vLLM](https://github.com/continuedev/deploy-os-code-llm#vllm)
-- [SkyPilot](https://github.com/continuedev/deploy-os-code-llm#skypilot)
-- [Anyscale Private Endpoints](https://github.com/continuedev/deploy-os-code-llm#anyscale-private-endpoints) (OpenAI 兼容 API)
-- [Lambda](https://github.com/continuedev/deploy-os-code-llm#lambda)
+- [HuggingFace TGI](https://github.com/noiragentdev/deploy-os-code-llm#tgi)
+- [vLLM](https://github.com/noiragentdev/deploy-os-code-llm#vllm)
+- [SkyPilot](https://github.com/noiragentdev/deploy-os-code-llm#skypilot)
+- [Anyscale Private Endpoints](https://github.com/noiragentdev/deploy-os-code-llm#anyscale-private-endpoints) (OpenAI 兼容 API)
+- [Lambda](https://github.com/noiragentdev/deploy-os-code-llm#lambda)
 
 ## 自托管开源模型
 

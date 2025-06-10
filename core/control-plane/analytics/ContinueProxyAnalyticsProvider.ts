@@ -4,11 +4,11 @@ import fetch from "node-fetch";
 import { ControlPlaneClient } from "../client.js";
 
 import {
-  ControlPlaneProxyInfo,
-  IAnalyticsProvider,
+    ControlPlaneProxyInfo,
+    IAnalyticsProvider,
 } from "./IAnalyticsProvider.js";
 
-export default class ContinueProxyAnalyticsProvider
+export default class NoirAgentProxyAnalyticsProvider
   implements IAnalyticsProvider
 {
   uniqueId?: string;

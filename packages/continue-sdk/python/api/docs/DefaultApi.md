@@ -1,6 +1,6 @@
 # openapi_client.DefaultApi
 
-All URIs are relative to *https://api.continue.dev*
+All URIs are relative to *https://api.noiragent.dev*
 
 | Method                                               | HTTP request                 | Description             |
 | ---------------------------------------------------- | ---------------------------- | ----------------------- |
@@ -28,10 +28,10 @@ from openapi_client.models.list_assistants200_response_inner import ListAssistan
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.continue.dev
+# Defining the host is optional and defaults to https://api.noiragent.dev
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://api.continue.dev"
+    host = "https://api.noiragent.dev"
 )
 
 # The client must configure the authentication and authorization parameters

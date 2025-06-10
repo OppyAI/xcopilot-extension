@@ -133,7 +133,7 @@ export class VerticalDiffManager {
 
     this.disableDocumentChangeListener();
 
-    vscode.commands.executeCommand("setContext", "continue.diffVisible", false);
+    vscode.commands.executeCommand("setContext", "noiragent.diffVisible", false);
   }
 
   async acceptRejectVerticalDiffBlock(
@@ -191,7 +191,7 @@ export class VerticalDiffManager {
     streamId: string,
     toolCallId?: string,
   ) {
-    vscode.commands.executeCommand("setContext", "continue.diffVisible", true);
+    vscode.commands.executeCommand("setContext", "noiragent.diffVisible", true);
 
     // Get the current editor fileUri/range
     let editor = vscode.window.activeTextEditor;
@@ -246,7 +246,7 @@ export class VerticalDiffManager {
 
     vscode.commands.executeCommand(
       "setContext",
-      "continue.streamingDiff",
+      "noiragent.streamingDiff",
       true,
     );
 
@@ -268,7 +268,7 @@ export class VerticalDiffManager {
     } finally {
       vscode.commands.executeCommand(
         "setContext",
-        "continue.streamingDiff",
+        "noiragent.streamingDiff",
         false,
       );
     }
@@ -295,7 +295,7 @@ export class VerticalDiffManager {
     toolCallId?: string;
     rulesToInclude: undefined | RuleWithSource[];
   }): Promise<string | undefined> {
-    vscode.commands.executeCommand("setContext", "continue.diffVisible", true);
+    vscode.commands.executeCommand("setContext", "noiragent.diffVisible", true);
 
     let editor = vscode.window.activeTextEditor;
 
@@ -431,7 +431,7 @@ export class VerticalDiffManager {
 
     vscode.commands.executeCommand(
       "setContext",
-      "continue.streamingDiff",
+      "noiragent.streamingDiff",
       true,
     );
 
@@ -481,7 +481,7 @@ export class VerticalDiffManager {
     } finally {
       vscode.commands.executeCommand(
         "setContext",
-        "continue.streamingDiff",
+        "noiragent.streamingDiff",
         false,
       );
     }

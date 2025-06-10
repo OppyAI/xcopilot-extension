@@ -43,4 +43,4 @@ Cloudflare Workers AI 可以在 Continue 中用来聊天或 tab 自动补全。�
 
 在 Workers AI 重看 [可用的模型](https://developers.cloudflare.com/workers-ai/models/)
 
-[查看代码](https://github.com/continuedev/continue/blob/main/core/llm/llms/Cloudflare.ts)
+[查看代码](https://github.com/noiragentdev/noiragent/blob/main/core/llm/llms/Cloudflare.ts)

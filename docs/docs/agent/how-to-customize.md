@@ -7,7 +7,7 @@ sidebar_position: 5
 
 ## Add MCP tools
 
-You can add MCP servers to your assistant to give Agent access to more tools. [Explore MCP Servers on the Hub](https://hub.continue.dev/explore/mcp) and see the [MCP guide](../customize/deep-dives/mcp.mdx) for more details.
+You can add MCP servers to your assistant to give Agent access to more tools. [Explore MCP Servers on the Hub](https://hub.noiragent.dev/explore/mcp) and see the [MCP guide](../customize/deep-dives/mcp.mdx) for more details.
 
 ## Tool policies
 

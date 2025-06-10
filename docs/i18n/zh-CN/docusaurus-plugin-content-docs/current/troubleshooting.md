@@ -40,7 +40,7 @@ Continue VS Code 扩展现在是 beta ， JetBrains 扩展现在是 Alpha 。如
 
 ### JetBrains
 
-打开 `~/.continue/logs/core.log` 。最近的日志可以在文件的底部找到。
+打开 `~/.noiragent/logs/core.log` 。最近的日志可以在文件的底部找到。
 
 ## 下载最新的预览版
 
@@ -64,9 +64,9 @@ Continue VS Code 扩展现在是 beta ， JetBrains 扩展现在是 Alpha 。如
 
 如果你尝试了所有东西，报告一个错误，知道一个之前的版本对你有效，并等待回复，你可以尝试下载一个扩展的比较老的版本。
 
-对于 VS Code ，所有版本都托管在 [这里](https://open-vsx.org/extension/Continue/continue) 的 Open VSX Registry 。一旦你下载了扩展，它是一个 .vsix 文件，你可以通过 [在这里](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix) 的以下指令手动安装它。
+对于 VS Code ，所有版本都托管在 [这里](https://open-vsx.org/extension/Continue/noiragent) 的 Open VSX Registry 。一旦你下载了扩展，它是一个 .vsix 文件，你可以通过 [在这里](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix) 的以下指令手动安装它。
 
-你可以在他们的 [市场](https://plugins.jetbrains.com/plugin/22707-continue) 中找到较老版本的 JetBrains 扩展，这将允许你从磁盘上安装。
+你可以在他们的 [市场](https://plugins.jetbrains.com/plugin/22707-noiragent) 中找到较老版本的 JetBrains 扩展，这将允许你从磁盘上安装。
 
 ## 快捷键无法解析
 
@@ -124,8 +124,8 @@ Continue 可以在 [code-server](https://coder.com/) 中使用，但是如果你
 
 ### Android Studio - "Nothing to show" 在聊天中
 
-这可以修复，通过选择 `Actions > Choose Boot runtime for the IDE` ，然后选择最新的版本，然后重启 Android Studio 。[查看这个线索](https://github.com/continuedev/continue/issues/2280#issuecomment-2365231567) 获得详情。
+这可以修复，通过选择 `Actions > Choose Boot runtime for the IDE` ，然后选择最新的版本，然后重启 Android Studio 。[查看这个线索](https://github.com/noiragentdev/noiragent/issues/2280#issuecomment-2365231567) 获得详情。
 
 ## 仍然有问题？
 
-你还可以 [在这里](https://discord.gg/vapESyrFmJ) 加入我们的 Discord 社区，获得更多的支持和讨论。另外，你可以 [在这里](https://github.com/continuedev/continue/issues/new?assignees=&labels=bug&projects=&template=bug-report-%F0%9F%90%9B.md&title=) 创建一个 GitHub issue ，提供你的问题的详情，我们将能更快的帮助你。
+你还可以 [在这里](https://discord.gg/vapESyrFmJ) 加入我们的 Discord 社区，获得更多的支持和讨论。另外，你可以 [在这里](https://github.com/noiragentdev/noiragent/issues/new?assignees=&labels=bug&projects=&template=bug-report-%F0%9F%90%9B.md&title=) 创建一个 GitHub issue ，提供你的问题的详情，我们将能更快的帮助你。

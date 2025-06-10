@@ -29,4 +29,4 @@
 
 `apiBase` 现在将会代替默认的 `http://localhost:1234/v1` 。
 
-[查看代码](https://github.com/continuedev/continue/blob/main/core/llm/llms/LMStudio.ts)
+[查看代码](https://github.com/noiragentdev/noiragent/blob/main/core/llm/llms/LMStudio.ts)

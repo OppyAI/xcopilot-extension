@@ -11,7 +11,7 @@ import { ToolbarOptions } from "./InputToolbar";
 import { Lump } from "./Lump";
 import { TipTapEditor } from "./TipTapEditor";
 
-interface ContinueInputBoxProps {
+interface NoirAgentInputBoxProps {
   isLastUserInput: boolean;
   isMainInput?: boolean;
   onEnter: (
@@ -75,7 +75,7 @@ const GradientBorder = styled.div<{
   align-items: center;
 `;
 
-function ContinueInputBox(props: ContinueInputBoxProps) {
+function NoirAgentInputBox(props: NoirAgentInputBoxProps) {
   const isStreaming = useAppSelector((state) => state.session.isStreaming);
   const availableSlashCommands = useAppSelector(
     selectSlashCommandComboBoxInputs,
@@ -159,4 +159,4 @@ function ContinueInputBox(props: ContinueInputBoxProps) {
   );
 }
 
-export default ContinueInputBox;
+export default NoirAgentInputBox;

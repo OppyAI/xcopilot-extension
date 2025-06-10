@@ -4,7 +4,7 @@ description: Reference for the Continue _config.json_ configuration file
 keywords: [config, config_schema.json, json]
 ---
 
-Below are details for each property that can be set in `config.json`. The config schema code is found in [`extensions/vscode/config_schema.json`](https://github.com/continuedev/continue/blob/main/extensions/vscode/config_schema.json).
+Below are details for each property that can be set in `config.json`. The config schema code is found in [`extensions/vscode/config_schema.json`](https://github.com/noiragentdev/noiragent/blob/main/extensions/vscode/config_schema.json).
 
 **All properties at all levels are optional unless explicitly marked required**
 
@@ -23,7 +23,7 @@ Each model has specific configuration options tailored to its provider and funct
 - `contextLength`: Maximum context length of the model, typically in tokens (default: 2048).
 - `maxStopWords`: Maximum number of stop words allowed, to avoid API errors with extensive lists.
 - `template`: Chat template to format messages. Auto-detected for most models but can be overridden. See intelliJ suggestions.
-- `promptTemplates`: A mapping of prompt template names (e.g., `edit`) to template strings. [Customization Guide](https://docs.continue.dev/model-setup/configuration#customizing-the-edit-prompt).
+- `promptTemplates`: A mapping of prompt template names (e.g., `edit`) to template strings. [Customization Guide](https://docs.noiragent.dev/model-setup/configuration#customizing-the-edit-prompt).
 - `completionOptions`: Model-specific completion options, same format as top-level [`completionOptions`](#completionoptions), which they override.
 - `systemMessage`: A system message that will precede responses from the LLM.
 - `requestOptions`: Model-specific HTTP request options, same format as top-level [`requestOptions`](#requestoptions), which they override.
@@ -243,8 +243,8 @@ Example
 "docs": [
     {
     "title": "Continue",
-    "startUrl": "https://docs.continue.dev/intro",
-    "faviconUrl": "https://docs.continue.dev/favicon.ico",
+    "startUrl": "https://docs.noiragent.dev/intro",
+    "faviconUrl": "https://docs.noiragent.dev/favicon.ico",
   }
 ]
 ```
@@ -415,7 +415,7 @@ Several experimental config parameters are available, as described below:
   - `fix`: Prompt for fixing code.
   - `optimize`: Prompt for optimizing code.
   - `fixGrammar`: Prompt for fixing grammar or spelling.
-- `useChromiumForDocsCrawling`: Use Chromium to crawl docs locally. Useful if the default Cheerio crawler fails on sites that require JavaScript rendering. Downloads and installs Chromium to `~/.continue/.utils`..
+- `useChromiumForDocsCrawling`: Use Chromium to crawl docs locally. Useful if the default Cheerio crawler fails on sites that require JavaScript rendering. Downloads and installs Chromium to `~/.noiragent/.utils`..
 
 Example
 

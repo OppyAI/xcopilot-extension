@@ -1,6 +1,6 @@
 ---
 description: Rules are used to provide instructions to the model for Chat, Edit, and Agent requests.
-keywords: [rules, .continuerules, system, prompt, message]
+keywords: [rules, .noiragentrules, system, prompt, message]
 ---
 
 # Rules
@@ -17,12 +17,12 @@ To form the system message, rules are joined with new lines, in the order they a
 
 ## `rules` blocks
 
-Rules can be added to an Assistant on the Continue Hub. Explore available rules [here](https://hub.continue.dev/explore/rules), or [create your own](https://hub.continue.dev/new?type=block&blockType=rules) in the Hub. These blocks are defined using the [`config.yaml` syntax](../../reference.md#rules) and can also be created locally.
+Rules can be added to an Assistant on the Continue Hub. Explore available rules [here](https://hub.noiragent.dev/explore/rules), or [create your own](https://hub.noiragent.dev/new?type=block&blockType=rules) in the Hub. These blocks are defined using the [`config.yaml` syntax](../../reference.md#rules) and can also be created locally.
 
 :::info Automatically create local rule blocks
 When in Agent mode, you can simply prompt the agent to create a rule for you using the `builtin_create_rule_block` tool if enabled.
 
-For example, you can say "Create a rule for this", and a rule will be created for you in `.continue/rules` based on your conversation.
+For example, you can say "Create a rule for this", and a rule will be created for you in `.noiragent/rules` based on your conversation.
 :::
 
 ### Syntax
@@ -56,25 +56,25 @@ rules:
 
 Continue includes a simple default system message for [Chat](../../chat/how-to-use-it.md) and [Agent](../../agent/how-to-use-it.md) requests, to help the model provide reliable codeblock formats in its output.
 
-This can be viewed in the rules section of the toolbar (see above), or visit the source code [here](https://github.com/continuedev/continue/blob/main/core/llm/constructMessages.ts#L4)
+This can be viewed in the rules section of the toolbar (see above), or visit the source code [here](https://github.com/noiragentdev/noiragent/blob/main/core/llm/constructMessages.ts#L4)
 
 Advanced users can override this system message for a specific model if needed by using `chatOptions.baseSystemMessage`. See the [`config.yaml` reference](../../reference.md#models).
 
-## `.continuerules`
+## `.noiragentrules`
 
-You can create project-specific rules by adding a `.continuerules` file to the root of your project. This file is raw text and its full contents will be used as rules.
+You can create project-specific rules by adding a `.noiragentrules` file to the root of your project. This file is raw text and its full contents will be used as rules.
 
 ### Simple Examples
 
 - If you want concise answers:
 
-```title=.continuerules
+```title=.noiragentrules
 Please provide concise answers. Don't explain obvious concepts. You can assume that I am knowledgable about most programming topics.
 ```
 
 - If you want to ensure certain practices are followed, for example in React:
 
-```title=.continuerules
+```title=.noiragentrules
 Whenever you are writing React code, make sure to
 - use functional components instead of class components
 - use hooks for state management

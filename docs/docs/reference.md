@@ -9,14 +9,14 @@ keywords: [config, yaml, configuration, customize, customization]
 ## Introduction
 
 Continue hub assistants are defined using the `config.yaml` specification. Assistants can be loaded
-from [the Hub](https://hub.continue.dev/explore/assistants) or locally
+from [the Hub](https://hub.noiragent.dev/explore/assistants) or locally
 
-- [Continue Hub](https://hub.continue.dev/explore/assistants) - YAML is stored on the hub and automatically synced to
+- [Continue Hub](https://hub.noiragent.dev/explore/assistants) - YAML is stored on the hub and automatically synced to
   the extension
 - Locally
-  - in your global `.continue` folder (`~/.continue` on Mac, `%USERPROFILE%\.continue`) within `.continue/assistants`.
+  - in your global `.noiragent` folder (`~/.noiragent` on Mac, `%USERPROFILE%\.noiragent`) within `.noiragent/assistants`.
     The name of the file will be used as the display name of the assistant, e.g. `My Assistant.yaml`
-  - in your workspace in a `/.continue/assistants` folder, with the same naming convention
+  - in your workspace in a `/.noiragent/assistants` folder, with the same naming convention
 
 :::info
 Config YAML replaces [`config.json`](./json-reference.md), which is deprecated. View the **[Migration Guide](./yaml-migration.md)**.
@@ -32,7 +32,7 @@ A block is a single standalone building block of a coding assistants, e.g., one 
 `config.yaml` syntax, a block consists of the same top-level properties as assistants (`name`, `version`, and `schema`),
 but only has **ONE** item under whichever block type it is.
 
-Examples of blocks and assistants can be found on the [Continue hub](https://hub.continue.dev/explore/assistants).
+Examples of blocks and assistants can be found on the [Continue hub](https://hub.noiragent.dev/explore/assistants).
 
 Assistants can either explicitly define blocks - see [Properties](#properties) below - or import and configure existing
 hub blocks.
@@ -41,8 +41,8 @@ hub blocks.
 
 Hub blocks and assistants are identified with a slug in the format `owner-slug/block-or-assistant-slug`, where an owner
 can be a user or organization (For example, if you want to use
-the [OpenAI 4o Model block](https://hub.continue.dev/openai/gpt-4o), your slug would be `openai/gpt-4o`). These blocks
-are pulled from [https://hub.continue.dev](https://hub.continue.dev).
+the [OpenAI 4o Model block](https://hub.noiragent.dev/openai/gpt-4o), your slug would be `openai/gpt-4o`). These blocks
+are pulled from [https://hub.noiragent.dev](https://hub.noiragent.dev).
 
 Blocks can be imported into an assistant by adding a `uses` clause under the block type. This can be alongside other
 `uses` clauses or explicit blocks of that type.
@@ -58,33 +58,33 @@ models:
 
 ### Local Blocks
 
-It is also possible to define blocks locally in a `.continue` folder. This folder can be located at either the root of
+It is also possible to define blocks locally in a `.noiragent` folder. This folder can be located at either the root of
 your workspace (these will automatically be applied to all assistants when you are in that workspace) or in your home
-directory at `~/.continue` (these will automatically be applied globally).
+directory at `~/.noiragent` (these will automatically be applied globally).
 
 Place your YAML files in the following folders:
 
 Assistants:
 
-- `.continue/assistants` - for assistants
+- `.noiragent/assistants` - for assistants
 
 Blocks:
 
-- `.continue/rules` - for rules
-- `.continue/models` - for models
-- `.continue/prompts` - for prompts
-- `.continue/context` - for context providers
-- `.continue/docs` - for docs
-- `.continue/data` - for data
-- `.continue/mcpServers` - for MCP Servers
+- `.noiragent/rules` - for rules
+- `.noiragent/models` - for models
+- `.noiragent/prompts` - for prompts
+- `.noiragent/context` - for context providers
+- `.noiragent/docs` - for docs
+- `.noiragent/data` - for data
+- `.noiragent/mcpServers` - for MCP Servers
 
 You can find many examples of each of these block types on
-the [Continue Explore Page](https://hub.continue.dev/explore/models)
+the [Continue Explore Page](https://hub.noiragent.dev/explore/models)
 
 :::info
 Local blocks utilizing mustache notation for secrets (`${{ secrets.SECRET_NAME }}`) can read secret values:
 
-- globally, from a `.env` located in the global `.continue` folder (`~/.continue/.env`)
+- globally, from a `.env` located in the global `.noiragent` folder (`~/.noiragent/.env`)
 - per-workspace, from a `.env` file located at the root of the current workspace.
   :::
 
@@ -365,8 +365,8 @@ Example
 ```yaml title="config.yaml"
 docs:
   - name: Continue
-    startUrl: https://docs.continue.dev/intro
-    favicon: https://docs.continue.dev/favicon.ico
+    startUrl: https://docs.noiragent.dev/intro
+    favicon: https://docs.noiragent.dev/favicon.ico
 ```
 
 ---
@@ -420,7 +420,7 @@ Destinations to which [development data](./customize/deep-dives/development-data
 ```yaml title="config.yaml"
 data:
   - name: Local Data Bank
-    destination: file:///Users/dallin/Documents/code/continuedev/continue-extras/external-data
+    destination: file:///Users/dallin/Documents/code/noiragentdev/noiragent-extras/external-data
     schema: 0.2.0
     level: all
   - name: My Private Company

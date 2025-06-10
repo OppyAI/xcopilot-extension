@@ -1,5 +1,4 @@
 import { LLMInteractionItem } from "core";
-import { EXTENSION_NAME } from "core/control-plane/env";
 import { LLMLogger } from "core/llm/logger";
 import * as vscode from "vscode";
 
@@ -14,11 +13,10 @@ interface FromConsoleView {
 // oldest and also send a message to the view to do the same.
 const MAX_INTERACTIONS = 50;
 
-export class ContinueConsoleWebviewViewProvider
+export class NoirAgentConsoleWebviewViewProvider
   implements vscode.WebviewViewProvider
 {
-  public static readonly viewType = "continue.continueConsoleView";
-
+  public static readonly viewType = "noiragent.noirAgentConsoleView";
   resolveWebviewView(
     webviewView: vscode.WebviewView,
     _context: vscode.WebviewViewResolveContext,
@@ -26,6 +24,18 @@ export class ContinueConsoleWebviewViewProvider
   ): void | Thenable<void> {
     this._webviewView = webviewView;
     this._webview = webviewView.webview;
+    
+    // Set webview options
+    const extensionUri = getExtensionUri();
+    webviewView.webview.options = {
+      enableScripts: true,
+      localResourceRoots: [
+        vscode.Uri.joinPath(extensionUri, "gui"),
+        vscode.Uri.joinPath(extensionUri, "assets"),
+      ],
+      enableCommandUris: true,
+    };
+    
     this._webviewView.onDidDispose(() => {
       this._webviewView = undefined;
       this._webview = undefined;
@@ -57,18 +67,17 @@ export class ContinueConsoleWebviewViewProvider
   private _currentInteractions = new Map<string, LLMInteractionItem[]>();
   private _completedInteractions: LLMInteractionItem[][] = [];
   private _saveLog;
-
   constructor(
     private readonly windowId: string,
     private readonly extensionContext: vscode.ExtensionContext,
     private readonly llmLogger: LLMLogger,
   ) {
-    const config = vscode.workspace.getConfiguration(EXTENSION_NAME);
+    const config = vscode.workspace.getConfiguration("noiragent");
     this._saveLog = config.get<boolean>("enableConsole");
 
     vscode.workspace.onDidChangeConfiguration((e) => {
-      if (e.affectsConfiguration(`${EXTENSION_NAME}.enableConsole`)) {
-        const config = vscode.workspace.getConfiguration(EXTENSION_NAME);
+      if (e.affectsConfiguration("noiragent.enableConsole")) {
+        const config = vscode.workspace.getConfiguration("noiragent");
         this._saveLog = config.get<boolean>("enableConsole");
         if (!this._saveLog) {
           this.clearLog();
@@ -198,7 +207,7 @@ export class ContinueConsoleWebviewViewProvider
         <script>const vscode = acquireVsCodeApi();</script>
         <link href="${styleMainUri}" rel="stylesheet">
 
-        <title>Continue</title>
+        <title>NoirAgent</title>
       </head>
       <body>
         <div id="root"></div>
@@ -213,9 +222,12 @@ export class ContinueConsoleWebviewViewProvider
           window.__vite_plugin_react_preamble_installed__ = true
           </script>`
             : ""
-        }
-        <script type="module" nonce="${nonce}" src="${scriptUri}"></script>
+        }        <script type="module" nonce="${nonce}" src="${scriptUri}"></script>
       </body>
     </html>`;
   }
 }
+
+// Alias export for backward compatibility
+export const ContinueConsoleWebviewViewProvider = NoirAgentConsoleWebviewViewProvider;
+export type ContinueConsoleWebviewViewProvider = NoirAgentConsoleWebviewViewProvider;

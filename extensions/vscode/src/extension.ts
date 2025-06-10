@@ -17,8 +17,9 @@ async function dynamicImportAndActivate(context: vscode.ExtensionContext) {
 }
 
 export function activate(context: vscode.ExtensionContext) {
+  console.log("NoirAgent: Extension activation starting");
   return dynamicImportAndActivate(context).catch((e) => {
-    console.log("Error activating extension: ", e);
+    console.log("NoirAgent: Error activating extension: ", e);
     Telemetry.capture(
       "vscode_extension_activation_error",
       {
@@ -36,7 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
       )
       .then((selection) => {
         if (selection === "View Logs") {
-          vscode.commands.executeCommand("continue.viewLogs");
+          vscode.commands.executeCommand("noiragent.viewLogs");
         } else if (selection === "Retry") {
           // Reload VS Code window
           vscode.commands.executeCommand("workbench.action.reloadWindow");

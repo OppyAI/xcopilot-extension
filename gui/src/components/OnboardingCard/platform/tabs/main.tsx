@@ -6,7 +6,7 @@ import { IdeMessengerContext } from "../../../../context/IdeMessenger";
 import { selectCurrentOrg } from "../../../../redux";
 import { useAppSelector } from "../../../../redux/hooks";
 import { hasPassedFTL } from "../../../../util/freeTrial";
-import ContinueLogo from "../../../gui/ContinueLogo";
+import NoirAgentLogo from "../../../gui/ContinueLogo";
 import { useOnboardingCard } from "../../hooks";
 
 export default function MainTab({
@@ -39,10 +39,9 @@ export default function MainTab({
 
   const pastFreeTrialLimit = hasPassedFTL();
 
-  return (
-    <div className="xs:px-0 flex w-full max-w-full flex-col items-center justify-center px-4 text-center">
+  return (    <div className="xs:px-0 flex w-full max-w-full flex-col items-center justify-center px-4 text-center">
       <div className="xs:flex hidden">
-        <ContinueLogo height={75} />
+        <NoirAgentLogo height={75} />
       </div>
 
       {pastFreeTrialLimit ? (
@@ -62,7 +61,7 @@ export default function MainTab({
         <>
           <p className="xs:w-3/4 w-full text-sm">
             You can now browse and create custom AI code assistants at{" "}
-            <code>hub.continue.dev</code>
+            <code>hub.noiragent.dev</code>
           </p>
 
           <Button
@@ -90,7 +89,7 @@ export default function MainTab({
       {onboardingCard.activeTab === "ExistingUserHubIntro" ? (
         <ButtonSubtext onClick={() => onboardingCard.close(isDialog)}>
           <div className="mt-4 flex cursor-pointer items-center justify-center gap-1">
-            <span>Or, use Continue as usual</span>
+            <span>Or, use NoirAgent as usual</span>
             <ChevronRightIcon className="h-3 w-3" />
           </div>
         </ButtonSubtext>

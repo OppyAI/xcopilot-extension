@@ -6,7 +6,7 @@ keywords: [安装, 开始, vs code, jetbrains]
 
 ## VS Code
 
-1. 点击 [Visual Studio 市场中 Continue 扩展页面](https://marketplace.visualstudio.com/items?itemName=Continue.continue) 的 `安装` 按钮
+1. 点击 [Visual Studio 市场中 Continue 扩展页面](https://marketplace.visualstudio.com/items?itemName=Continue.noiragent) 的 `安装` 按钮
 
 2. 这会打开 VS Code 中的 Continue 扩展页面，你需要再次点击 `安装`
 

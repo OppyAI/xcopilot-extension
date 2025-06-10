@@ -46,4 +46,4 @@ Whenever you see red/yellow underlines in your code indicating errors, you can p
 
 Similarly to the debug action, quick actions transparently inject a prompt into the chat window. When you select “Ask Continue”, the 3 lines above and below the error are sent to the chat followed by the question “How do I fix the following problem in the above code?: [ERROR_MESSAGE]”.
 
-![ask-continue](/img/ask-continue.png)
+![ask-noiragent](/img/ask-noiragent.png)

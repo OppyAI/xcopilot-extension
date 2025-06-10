@@ -1,7 +1,7 @@
 ---
 title: Introduction
 description: Introduction
-keywords: [continue, hub, introduction]
+keywords: [noiragent, hub, introduction]
 sidebar_label: Introduction
 ---
 
@@ -9,7 +9,7 @@ sidebar_label: Introduction
 
 ![Continue Hub](/img/hub/models-page.png)
 
-[Continue Hub](https://hub.continue.dev) makes it simple to create custom AI code [assistants](./assistants/intro.md), providing a registry for defining, managing, and sharing assistant [building blocks](./blocks/intro.md).
+[Continue Hub](https://hub.noiragent.dev) makes it simple to create custom AI code [assistants](./assistants/intro.md), providing a registry for defining, managing, and sharing assistant [building blocks](./blocks/intro.md).
 
 Assistants can contain several types of blocks, including [models](./blocks/block-types.md#models), [rules](./blocks/block-types.md#rules), [context providers](./blocks/block-types.md#context), [prompts](./blocks/block-types.md#prompts), [docs](./blocks/block-types.md#docs), [data destinations](./blocks/block-types.md#data), and [MCP servers](./blocks/block-types.md#mcp-servers).
 

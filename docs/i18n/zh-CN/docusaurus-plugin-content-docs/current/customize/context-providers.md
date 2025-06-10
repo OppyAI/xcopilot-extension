@@ -212,8 +212,8 @@ keywords: [上下文, "@", 提供者, LLM]
       "params": {
         "repos": [
           {
-            "owner": "continuedev",
-            "repo": "continue"
+            "owner": "noiragentdev",
+            "repo": "noiragent"
           }
         ],
         "githubToken": "ghp_xxx"
@@ -340,7 +340,7 @@ assignee = currentUser() AND resolution = Unresolved order by updated DESC
 
 默认情况下， `schema` 过滤器设置为 `public` ， `sampleRows` 设置为 3 。你可以取消设置 schema ，如果你想要包含所有 schema 的表。
 
-[这是一个简单的 demo](https://github.com/continuedev/continue/pull/859) 。
+[这是一个简单的 demo](https://github.com/noiragentdev/noiragent/pull/859) 。
 
 ### `@Database`
 
@@ -486,4 +486,4 @@ HttpContextProvider 创建一个 POST 请求到配置中的 url 。服务器必�
 
 ### 请求上下文提供者
 
-没有看到你想要的？[在这里](https://github.com/continuedev/continue/issues/new?assignees=TyDunn&labels=enhancement&projects=&template=feature-request-%F0%9F%92%AA.md&title=) 创建一个 issue 来请求一个新的上下文提供者。
+没有看到你想要的？[在这里](https://github.com/noiragentdev/noiragent/issues/new?assignees=TyDunn&labels=enhancement&projects=&template=feature-request-%F0%9F%92%AA.md&title=) 创建一个 issue 来请求一个新的上下文提供者。

@@ -7,7 +7,7 @@ keywords: [blocks, bundles]
 
 # Bundles
 
-Bundles are collections of blocks that are commonly used together. You can use them to add multiple building blocks to your custom AI code assistants at once. They are only a concept on [hub.continue.dev](https://hub.continue.dev), so they are not represented in `config.yaml`.
+Bundles are collections of blocks that are commonly used together. You can use them to add multiple building blocks to your custom AI code assistants at once. They are only a concept on [hub.noiragent.dev](https://hub.noiragent.dev), so they are not represented in `config.yaml`.
 
 ## Use a bundle
 

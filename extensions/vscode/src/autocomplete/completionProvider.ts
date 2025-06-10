@@ -1,8 +1,8 @@
 import { CompletionProvider } from "core/autocomplete/CompletionProvider";
 import { processSingleLineCompletion } from "core/autocomplete/util/processSingleLineCompletion";
 import {
-  type AutocompleteInput,
-  type AutocompleteOutcome,
+    type AutocompleteInput,
+    type AutocompleteOutcome,
 } from "core/autocomplete/util/types";
 import { ConfigHandler } from "core/config/ConfigHandler";
 import { IS_NEXT_EDIT_ACTIVE } from "core/nextEdit/constants";
@@ -19,10 +19,10 @@ import { getDefinitionsFromLsp } from "./lsp";
 import { RecentlyEditedTracker } from "./recentlyEdited";
 import { RecentlyVisitedRangesService } from "./RecentlyVisitedRangesService";
 import {
-  StatusBarStatus,
-  getStatusBarStatus,
-  setupStatusBar,
-  stopStatusBarLoading,
+    StatusBarStatus,
+    getStatusBarStatus,
+    setupStatusBar,
+    stopStatusBarLoading,
 } from "./statusBar";
 
 interface VsCodeCompletionInput {
@@ -31,14 +31,14 @@ interface VsCodeCompletionInput {
   context: vscode.InlineCompletionContext;
 }
 
-export class ContinueCompletionProvider
+export class NoirAgentCompletionProvider
   implements vscode.InlineCompletionItemProvider
 {
   private async onError(e: unknown) {
     if (await handleLLMError(e)) {
       return;
     }
-    let message = "Continue Autocomplete Error";
+    let message = "NoirAgent Autocomplete Error";
     if (e instanceof Error) {
       message += `: ${e.message}`;
     }
@@ -46,7 +46,7 @@ export class ContinueCompletionProvider
       if (val === "Documentation") {
         vscode.env.openExternal(
           vscode.Uri.parse(
-            "https://docs.continue.dev/features/tab-autocomplete",
+            "https://docs.noiragent.dev/features/tab-autocomplete",
           ),
         );
       }
@@ -297,7 +297,7 @@ export class ContinueCompletionProvider
         range,
         {
           title: "Log Autocomplete Outcome",
-          command: "continue.logAutocompleteOutcome",
+          command: "noiragent.logAutocompleteOutcome",
           arguments: [input.completionId, this.completionProvider],
         },
       );
@@ -333,3 +333,7 @@ export class ContinueCompletionProvider
     return true;
   }
 }
+
+// Alias export for backward compatibility
+export const ContinueCompletionProvider = NoirAgentCompletionProvider;
+export type ContinueCompletionProvider = NoirAgentCompletionProvider;

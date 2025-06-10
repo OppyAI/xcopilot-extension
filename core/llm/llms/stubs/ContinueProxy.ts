@@ -1,8 +1,8 @@
 import {
-  ContinueProperties,
-  decodeSecretLocation,
-  parseProxyModelName,
-  SecretType,
+    ContinueProperties,
+    decodeSecretLocation,
+    parseProxyModelName,
+    SecretType,
 } from "@continuedev/config-yaml";
 
 import { ControlPlaneProxyInfo } from "../../../control-plane/analytics/IAnalyticsProvider.js";
@@ -12,7 +12,7 @@ import OpenAI from "../OpenAI.js";
 import type { Chunk, LLMOptions } from "../../../index.js";
 import { LLMConfigurationStatuses } from "../../constants.js";
 
-class ContinueProxy extends OpenAI {
+class NoirAgentProxy extends OpenAI {
   set controlPlaneProxyInfo(value: ControlPlaneProxyInfo) {
     this.apiKey = value.workOsAccessToken;
     if (!this.onPremProxyUrl) {
@@ -43,7 +43,7 @@ class ContinueProxy extends OpenAI {
     }
   }
 
-  static providerName = "continue-proxy";
+  static providerName = "noiragent-proxy";
   static defaultOptions: Partial<LLMOptions> = {
     useLegacyCompletionsEndpoint: false,
   };
@@ -54,14 +54,14 @@ class ContinueProxy extends OpenAI {
   }
 
   protected extraBodyProperties(): Record<string, any> {
-    const continueProperties: ContinueProperties = {
+    const noirAgentProperties: ContinueProperties = {
       apiKeyLocation: this.apiKeyLocation,
       apiBase: this.actualApiBase,
       orgScopeId: this.orgScopeId ?? null,
       env: this.configEnv,
     };
     return {
-      continueProperties,
+      noirAgentProperties,
     };
   }
 
@@ -123,4 +123,4 @@ class ContinueProxy extends OpenAI {
   }
 }
 
-export default ContinueProxy;
+export default NoirAgentProxy;

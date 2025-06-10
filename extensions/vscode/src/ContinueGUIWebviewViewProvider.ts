@@ -8,27 +8,56 @@ import { VsCodeWebviewProtocol } from "./webviewProtocol";
 
 import type { FileEdit } from "core";
 
-export class ContinueGUIWebviewViewProvider
+export class NoirAgentGUIWebviewViewProvider
   implements vscode.WebviewViewProvider
 {
-  public static readonly viewType = "continue.continueGUIView";
+  public static readonly viewType = "noiragent.noirAgentGUIView";
   public webviewProtocol: VsCodeWebviewProtocol;
 
   public get isReady(): boolean {
     return !!this.webview;
-  }
-
-  resolveWebviewView(
+  }  resolveWebviewView(
     webviewView: vscode.WebviewView,
     _context: vscode.WebviewViewResolveContext,
     _token: vscode.CancellationToken,
   ): void | Thenable<void> {
-    this._webviewView = webviewView;
-    this._webview = webviewView.webview;
-    webviewView.webview.html = this.getSidebarContent(
-      this.extensionContext,
-      webviewView,
-    );
+    try {
+      console.log("NoirAgent: Resolving webview view");
+      this._webviewView = webviewView;
+      this._webview = webviewView.webview;
+      
+      // Set webview options
+      const extensionUri = getExtensionUri();
+      console.log("NoirAgent: Extension URI:", extensionUri.toString());
+      
+      webviewView.webview.options = {
+        enableScripts: true,
+        localResourceRoots: [
+          vscode.Uri.joinPath(extensionUri, "gui"),
+          vscode.Uri.joinPath(extensionUri, "assets"),
+        ],
+        enableCommandUris: true,
+      };
+      
+      // Add error handling for webview
+      webviewView.webview.onDidReceiveMessage((message) => {
+        console.log("NoirAgent: Received message from webview:", message);
+      });
+      
+      console.log("NoirAgent: Setting webview HTML");
+      const htmlContent = this.getSidebarContent(
+        this.extensionContext,
+        webviewView,
+      );
+      console.log("NoirAgent: Generated HTML content length:", htmlContent.length);
+      
+      webviewView.webview.html = htmlContent;
+      console.log("NoirAgent: Webview HTML set successfully");
+      
+    } catch (error) {
+      console.error("NoirAgent: Error in resolveWebviewView:", error);
+      vscode.window.showErrorMessage(`NoirAgent webview error: ${error}`);
+    }
   }
 
   private _webview?: vscode.Webview;
@@ -56,12 +85,15 @@ export class ContinueGUIWebviewViewProvider
       input,
     });
   }
-
   constructor(
     private readonly configHandlerPromise: Promise<ConfigHandler>,
     private readonly windowId: string,
     private readonly extensionContext: vscode.ExtensionContext,
   ) {
+    console.log("NoirAgent: GUI WebviewViewProvider constructor called");
+    console.log("NoirAgent: Window ID:", this.windowId);
+    console.log("NoirAgent: Extension context:", this.extensionContext.extensionPath);
+    
     this.webviewProtocol = new VsCodeWebviewProtocol(
       (async () => {
         const configHandler = await this.configHandlerPromise;
@@ -141,7 +173,7 @@ export class ContinueGUIWebviewViewProvider
         <script>const vscode = acquireVsCodeApi();</script>
         <link href="${styleMainUri}" rel="stylesheet">
 
-        <title>Continue</title>
+        <title>NoirAgent</title>
       </head>
       <body>
         <div id="root"></div>
@@ -179,9 +211,12 @@ export class ContinueGUIWebviewViewProvider
           edits
             ? `<script>window.edits = ${JSON.stringify(edits)}</script>`
             : ""
-        }
-        ${page ? `<script>window.location.pathname = "${page}"</script>` : ""}
+        }        ${page ? `<script>window.location.pathname = "${page}"</script>` : ""}
       </body>
     </html>`;
   }
 }
+
+// Alias export for backward compatibility
+export const ContinueGUIWebviewViewProvider = NoirAgentGUIWebviewViewProvider;
+export type ContinueGUIWebviewViewProvider = NoirAgentGUIWebviewViewProvider;

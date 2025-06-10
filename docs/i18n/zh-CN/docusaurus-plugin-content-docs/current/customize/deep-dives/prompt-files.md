@@ -7,7 +7,7 @@ title: 提示词文件
 ## 快速开始
 
 :::tip[提示词库]
-为了帮助你开始，[我们精心编写了一个小的 `.prompt` 文件库](https://github.com/continuedev/prompt-file-examples)。我们鼓励社区贡献到这个仓库，所有请考虑为你的 prompt 创建一个拉取请求！
+为了帮助你开始，[我们精心编写了一个小的 `.prompt` 文件库](https://github.com/noiragentdev/prompt-file-examples)。我们鼓励社区贡献到这个仓库，所有请考虑为你的 prompt 创建一个拉取请求！
 :::
 
 以下是一个快速示例，设置一个 prompt 文件使用 Jest 编写单元测试。
@@ -82,7 +82,7 @@ Write unit tests for the above selected code, following each of these instructio
 任何你添加到配置中的 [上下文提供者](../context-providers.mdx) ，可以使用上下文提供者的名称引用。接收输入的上下文提供者也支持。
 
 - `{{{ terminal }}}` - 终端的内容
-- `{{{ url "https://github.com/continuedev/continue" }}}` - URL 的内容
+- `{{{ url "https://github.com/noiragentdev/noiragent" }}}` - URL 的内容
 
 ## 反馈
 

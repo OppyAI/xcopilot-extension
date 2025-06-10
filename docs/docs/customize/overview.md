@@ -18,7 +18,7 @@ Whatever you choose, you'll probably start by editing your Assistant.
 
 You can easily access your assistant configuration from the Continue Chat sidebar. Open the sidebar by pressing <kbd>cmd/ctrl</kbd> + <kbd>L</kbd> (VS Code) or <kbd>cmd/ctrl</kbd> + <kbd>J</kbd> (JetBrains) and click the Assistant selector above the main chat input. Then, you can hover over an assistant and click the `new window` (hub assistants) or `gear` (local assistants) icon.
 
-![configure an assistant](/img/configure-continue.png)
+![configure an assistant](/img/configure-noiragent.png)
 
 - See [Editing Hub Assistants](../hub/assistants/edit-an-assistant.md) for more details on managing your hub assistant
 - See the [Config Deep Dive](./deep-dives/configuration.md) for more details on configuring local assistants.

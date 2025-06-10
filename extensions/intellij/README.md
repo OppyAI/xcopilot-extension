@@ -4,7 +4,7 @@
 
 <div align="center">
 
-[**Continue**](https://docs.continue.dev) enables developers to create, share, and use custom AI code assistants with our open-source [JetBrains](https://plugins.jetbrains.com/plugin/22707-continue-extension) extension and [hub of models, rules, prompts, docs, and other building blocks](https://hub.continue.dev).
+[**Continue**](https://docs.noiragent.dev) enables developers to create, share, and use custom AI code assistants with our open-source [JetBrains](https://plugins.jetbrains.com/plugin/22707-noiragent-extension) extension and [hub of models, rules, prompts, docs, and other building blocks](https://hub.noiragent.dev).
 
 </div>
 
@@ -12,25 +12,25 @@
 
 ## Chat
 
-[Chat](https://continue.dev/docs/chat/how-to-use-it) makes it easy to ask for help from an LLM without needing to leave the IDE.
+[Chat](https://noiragent.dev/docs/chat/how-to-use-it) makes it easy to ask for help from an LLM without needing to leave the IDE.
 
 You send it a task, including any relevant information, and it replies with the text / code most likely to complete the task. If it does not give you what you want, then you can send follow up messages to clarify and adjust its approach until the task is completed.
 
 ## Autocomplete
 
-[Autocomplete](https://continue.dev/docs/autocomplete/how-to-use-it) provides inline code suggestions as you type.
+[Autocomplete](https://noiragent.dev/docs/autocomplete/how-to-use-it) provides inline code suggestions as you type.
 
 To enable it, simply click the "Continue" button in the status bar at the bottom right of your IDE or ensure the "Enable Tab Autocomplete" option is checked in your IDE settings.
 
 ## Edit
 
-[Edit](https://continue.dev/docs/edit/how-to-use-it) is a convenient way to modify code without leaving your current file.
+[Edit](https://noiragent.dev/docs/edit/how-to-use-it) is a convenient way to modify code without leaving your current file.
 
 Highlight a block of code, describe your code changes, and a diff will be streamed inline to your file which you can accept or reject.
 
 ## Agent
 
-[Agent](https://continue.dev/docs/agent/how-to-use-it) enables you to make more substantial changes to your codebase
+[Agent](https://noiragent.dev/docs/agent/how-to-use-it) enables you to make more substantial changes to your codebase
 
 Agent equips the Chat model with the tools needed to handle a wide range of coding tasks, allowing the model to make decisions and save you the work of manually finding context and performing actions.
 

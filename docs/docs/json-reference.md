@@ -8,7 +8,7 @@ keywords: [config, config_schema.json, json]
 We recently introduced a new configuration format, `config.yaml`, to replace `config.json`. See the `config.yaml` reference and migration guide [here](./reference.md).
 :::
 
-Below are details for each property that can be set in `config.json`. The config schema code is found in [`extensions/vscode/config_schema.json`](https://github.com/continuedev/continue/blob/main/extensions/vscode/config_schema.json).
+Below are details for each property that can be set in `config.json`. The config schema code is found in [`extensions/vscode/config_schema.json`](https://github.com/noiragentdev/noiragent/blob/main/extensions/vscode/config_schema.json).
 
 **All properties at all levels are optional unless explicitly marked required**
 
@@ -28,7 +28,7 @@ Each model has specific configuration options tailored to its provider and funct
 - `contextLength`: Maximum context length of the model, typically in tokens (default: 2048).
 - `maxStopWords`: Maximum number of stop words allowed, to avoid API errors with extensive lists.
 - `template`: Chat template to format messages. Auto-detected for most models but can be overridden. See intelliJ suggestions.
-- `promptTemplates`: A mapping of prompt template names (e.g., `edit`) to template strings. [Customization Guide](https://docs.continue.dev/model-setup/configuration#customizing-the-edit-prompt).
+- `promptTemplates`: A mapping of prompt template names (e.g., `edit`) to template strings. [Customization Guide](https://docs.noiragent.dev/model-setup/configuration#customizing-the-edit-prompt).
 - `completionOptions`: Model-specific completion options, same format as top-level [`completionOptions`](#completionoptions), which they override.
 - `systemMessage`: A system message that will precede responses from the LLM.
 - `requestOptions`: Model-specific HTTP request options, same format as top-level [`requestOptions`](#requestoptions), which they override.
@@ -250,8 +250,8 @@ Example
 "docs": [
     {
     "title": "Continue",
-    "startUrl": "https://docs.continue.dev/intro",
-    "faviconUrl": "https://docs.continue.dev/favicon.ico",
+    "startUrl": "https://docs.noiragent.dev/intro",
+    "faviconUrl": "https://docs.noiragent.dev/favicon.ico",
   }
 ]
 ```
@@ -279,7 +279,7 @@ Generate a shareable markdown transcript of your current chat history.
     {
       "name": "share",
       "description": "Export the current chat session to markdown",
-      "params": { "outputDir": "~/.continue/session-transcripts" }
+      "params": { "outputDir": "~/.noiragent/session-transcripts" }
     }
   ]
 }
@@ -319,7 +319,7 @@ Shows the LLM your current git diff and asks it to generate a commit message.
 
 #### `/http`
 
-Write a custom slash command at your own HTTP endpoint. Set 'url' in the params object for the endpoint you have setup. The endpoint should return a sequence of string updates, which will be streamed to the Continue sidebar. See our basic [FastAPI example](https://github.com/continuedev/continue/blob/74002369a5e435735b83278fb965e004ae38a97d/core/context/providers/context_provider_server.py#L34-L45) for reference.
+Write a custom slash command at your own HTTP endpoint. Set 'url' in the params object for the endpoint you have setup. The endpoint should return a sequence of string updates, which will be streamed to the Continue sidebar. See our basic [FastAPI example](https://github.com/noiragentdev/noiragent/blob/74002369a5e435735b83278fb965e004ae38a97d/core/context/providers/context_provider_server.py#L34-L45) for reference.
 
 ```json title="config.json"
 {
@@ -343,7 +343,7 @@ Describe the issue you'd like to generate, and Continue will turn into a well-fo
     {
       "name": "issue",
       "description": "Generate a link to a drafted GitHub issue",
-      "params": { "repositoryUrl": "https://github.com/continuedev/continue" }
+      "params": { "repositoryUrl": "https://github.com/noiragentdev/noiragent" }
     }
   ]
 }

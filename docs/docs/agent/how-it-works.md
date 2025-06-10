@@ -37,4 +37,4 @@ Continue includes several built-in tools which provide the model access to IDE f
 - **View diff** (`builtin_view_diff`): View the current working git diff
 - **View repo map** (`builtin_view_repo_map`): request a copy of the repository map—same as the [Repo Map Context Provider](../customize/context-providers.mdx#repository-map)
 - **View subdirectory** (`builtin_view_subdirectory`): request a copy of a repo map for a specific directory within the project
-- **Create Rule Block** (`builtin_create_rule_block`): creates a new rule block in `.continue/rules` based on the contents of the conversation
+- **Create Rule Block** (`builtin_create_rule_block`): creates a new rule block in `.noiragent/rules` based on the contents of the conversation

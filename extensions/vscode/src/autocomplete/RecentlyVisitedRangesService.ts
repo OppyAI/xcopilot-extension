@@ -1,7 +1,7 @@
 import { IDE } from "core";
 import {
-  AutocompleteCodeSnippet,
-  AutocompleteSnippetType,
+    AutocompleteCodeSnippet,
+    AutocompleteSnippetType,
 } from "core/autocomplete/snippets/types";
 import { PosthogFeatureFlag, Telemetry } from "core/util/posthog";
 import { LRUCache } from "lru-cache";
@@ -117,10 +117,10 @@ export class RecentlyVisitedRangesService {
         (s) =>
           !currentFilepath ||
           (s.filepath !== currentFilepath &&
-            // Exclude Continue's own output as it makes it super-hard for users to test the autocomplete feature
-            // while looking at the prompts in the Continue's output
+            // Exclude NoirAgent's own output as it makes it super-hard for users to test the autocomplete feature
+            // while looking at the prompts in the NoirAgent's output
             !s.filepath.startsWith(
-              "output:extension-output-Continue.continue",
+              "output:extension-output-NoirAgent.noiragent",
             )),
       )
       .sort((a, b) => b.timestamp - a.timestamp)
